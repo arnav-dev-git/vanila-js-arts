@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .img {
+        position: absolute;
+        background: url("https://images.unsplash.com/photo-1613222485054-d56cfec52e87?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+        z-index: 1;
+        background-position: center center;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+      }
+      .img:hover {
+        transition: 0.4s;
+        /* animation: blurAnim 0.5s linear forwards; */
+        /* filter: url("#color"); */
+        /* filter: url("#Blue"); */
+        filter: url("#brightness");
+      }
+
+      .img_holder {
+        position: absolute;
+        height: 300px;
+        width: 500px;
+        z-index: 20;
+      }
+      .snd {
+        left: 550px;
+      }
+
+      .img2:hover {
+        filter: url("#Blue");
+      }
+    </style>
+  </head>
+  <body>
+    <div class="img_holder">
+      <div class="img"></div>
+    </div>
+    <div class="img_holder snd">
+      <div class="img img2"></div>
+    </div>
+    <svg>
+      <defs>
+        <!-- color filter -->
+        <filter id="color">
+          <feComponentTransfer>
+            <feFuncR type="discrete" tableValues="0 0 0 0 0" />
+            <feFuncG type="discrete" tableValues="0 0.2 0.4 0.0 " />
+            <feFuncB type="discrete" tableValues="0 0.66 0.0 1 " />
+          </feComponentTransfer>
+        </filter>
+        <!-- // blue filter -->
+        <filter
+          id="Blue"
+          filterUnits="objectBoundingBox"
+          x="0%"
+          y="0%"
+          width="100%"
+          height="100%"
+        >
+          <feComponentTransfer in="SourceGraphic" result="A">
+            <feFuncR
+              type="table"
+              tableValues="0 0.11 0.22 0.34 0.48 0.61 0.72 0.82 0.89 0.95 1"
+            />
+            <feFuncG type="table" tableValues="0 0.22 0.33 0.44 0.66 0.77 1" />
+            <feFuncB
+              type="table"
+              tableValues="0.2 0.34 0.45 0.53 0.58 0.61 0.64 0.71 0.84 1 "
+            />
+          </feComponentTransfer>
+        </filter>
+        <!-- brightness -->
+        <filter id="brightness">
+          <feComponentTransfer>
+            <feFuncR type="linear" slope="5.0" intercept="-0.1" />
+            <feFuncG type="linear" slope="5.0" intercept="-0.1" />
+            <feFuncB type="linear" slope="5.0" intercept="-0.1" />
+          </feComponentTransfer>
+        </filter>
+      </defs>
+    </svg>
+  </body>
+</html>

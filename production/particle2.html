@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cool Particle Trail</title>
+  </head>
+  <style>canvas {position: absolute;top: 0;left: 0;background: black;}</style>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>const canvas=document.getElementById("canvas");canvas.width=window.innerWidth,canvas.height=window.innerHeight;const ctx=canvas.getContext("2d");ctx.imageSmoothingEnabled=!0;let hue=0;window.addEventListener("resize",function(){canvas.width=window.innerWidth,canvas.height=window.innerHeight,ctx.imageSmoothingEnabled=!0});const mouse={x:-100,y:-100},particleArray=[];canvas.addEventListener("click",t=>{mouse.x=t.x,mouse.y=t.y;for(let t=0;t<10;t++)particleArray.push(new Particle)}),canvas.addEventListener("mousemove",t=>{mouse.x=t.x,mouse.y=t.y;for(let t=0;t<10;t++)particleArray.push(new Particle)});const circle=(t=mouse.x,e=mouse.y)=>{ctx.fillStyle="#FFEBCD",ctx.strokeStyle="#A98B70",ctx.lineWidth=1,ctx.beginPath(),ctx.arc(t,e,40,0,2*Math.PI),ctx.fill()};class Particle{constructor(){this.x=mouse.x,this.y=mouse.y,this.size=5*Math.random()+1,this.speedX=3*Math.random()-1.5,this.speedY=3*Math.random()-1.5,this.color=`hsl(${hue}, 100%, 50%)`}update(){this.x+=this.speedX,this.y+=this.speedY,this.size>.2&&(this.size-=.05)}draw(){ctx.fillStyle=this.color,ctx.lineWidth=1,ctx.beginPath(),ctx.arc(this.x,this.y,this.size,0,2*Math.PI),ctx.fill()}}function handleParticle(){for(let t=0;t<particleArray.length;t++)particleArray[t].update(),particleArray[t].draw(),particleArray[t].size<=.3&&(particleArray.splice(t,1),t--)}const animate=()=>{ctx.fillStyle="rgba(0,0,0,0.1)",ctx.fillRect(0,0,canvas.width,canvas.height),handleParticle(),hue+=1.5,requestAnimationFrame(animate)};animate();</script>
+  </body>
+</html>

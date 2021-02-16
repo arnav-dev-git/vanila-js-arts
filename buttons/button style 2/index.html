@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button Style 2</title>
+    <script>
+      var head = document.getElementsByTagName("HEAD")[0];
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = "style.css";
+      head.appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="button_wrapper">
+        <button></button>
+        <div class="button_label">Home</div>
+      </div>
+      <div class="button_wrapper">
+        <button></button>
+        <div class="button_label">About</div>
+      </div>
+      <div class="button_wrapper">
+        <button></button>
+        <div class="button_label">Article</div>
+      </div>
+      <div class="button_wrapper">
+        <button></button>
+        <div class="button_label">Know More</div>
+      </div>
+      <div class="button_wrapper">
+        <button></button>
+        <div class="button_label">Contact Us</div>
+      </div>
+    </div>
+
+    <svg>
+      <defs>
+        <filter id="shake0">
+          <feTurbulence
+            id="turbulence"
+            baseFrequency="0.02"
+            numOctaves="3"
+            seed="0"
+          />
+          <feDisplacementMap
+            id="displacement"
+            in="SourceGraphic"
+            in2="noise"
+            scale="7"
+          />
+        </filter>
+        <filter id="shake1">
+          <feTurbulence
+            id="turbulence"
+            baseFrequency="0.02"
+            numOctaves="3"
+            seed="1"
+          />
+          <feDisplacementMap
+            id="displacement"
+            in="SourceGraphic"
+            in2="noise"
+            scale="5"
+          />
+        </filter>
+        <filter id="shake2">
+          <feTurbulence
+            id="turbulence"
+            baseFrequency="0.02"
+            numOctaves="3"
+            seed="2"
+          />
+          <feDisplacementMap
+            id="displacement"
+            in="SourceGraphic"
+            in2="noise"
+            scale="8"
+          />
+        </filter>
+        <filter id="shake3">
+          <feTurbulence
+            id="turbulence"
+            baseFrequency="0.02"
+            numOctaves="3"
+            seed="3"
+          />
+          <feDisplacementMap
+            id="displacement"
+            in="SourceGraphic"
+            in2="noise"
+            scale="6"
+          />
+        </filter>
+        <filter id="shake4">
+          <feTurbulence
+            id="turbulence"
+            baseFrequency="0.02"
+            numOctaves="3"
+            seed="17"
+          />
+          <feDisplacementMap
+            id="displacement"
+            in="SourceGraphic"
+            in2="noise"
+            scale="10"
+          />
+        </filter>
+      </defs>
+    </svg>
+  </body>
+</html>

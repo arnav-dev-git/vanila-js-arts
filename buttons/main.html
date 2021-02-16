@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buttons</title>
+    <script>
+      var head = document.getElementsByTagName("HEAD")[0];
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = "style.css";
+      head.appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <button>Button 1</button>
+      <button>Button 2</button>
+      <button>Button 3</button>
+    </div>
+
+    <svg>
+      <defs>
+        <filter id="wave">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.05 0.2"
+            numOctaves="1"
+            result="wrap"
+          />
+          <feDisplacementMap
+            xChannelSelector="R"
+            yChannelSelector="G"
+            scale="30"
+            in="SourceGraphic"
+            in2="wrapOffset"
+          />
+        </filter>
+      </defs>
+    </svg>
+
+    <script src="script.js"></script>
+  </body>
+</html>

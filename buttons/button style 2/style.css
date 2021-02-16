@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 200px;
+  height: 270px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  outline: none;
+  border: none;
+}
+
+.button_wrapper {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 5px;
+  transition: all 0.4s;
+}
+
+button,
+.button_label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.button_label {
+  line-height: 50px;
+  text-align: center;
+  font-size: 25px;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  background: #000;
+  outline: none;
+  border: none;
+}
+
+.button_wrapper:hover {
+  transform: scale(1.8);
+  z-index: 100;
+  animation: distort 0.4s linear infinite;
+}
+
+.button_wrapper:hover button {
+  background: rgb(255, 0, 0);
+}
+
+.button_wrapper:hover .button_label {
+  color: black;
+}
+
+@keyframes distort {
+  0% {
+    filter: url("#shake0");
+  }
+  25% {
+    filter: url("#shake1");
+  }
+  50% {
+    filter: url("#shake2");
+  }
+  75% {
+    filter: url("#shake3");
+  }
+  100% {
+    filter: url("#shake4");
+  }
+}
